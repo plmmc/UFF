@@ -12,6 +12,7 @@
         !VÁRIAVEIS!
         !!!!!!!!!!!
         
+        integer, parametet :: nn = 12
         real :: p0, pL, L, zeta, f, D, ro, c, Q, S, a, b, n
         real :: beta, alfa, dt, dx, 
         integer :: i,j
