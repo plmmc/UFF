@@ -1,19 +1,19 @@
         program ferramentasmatematicas
         implicit none
         
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        !                                                    !
-        !        PEDRO LINS DE MOURA MARTINS DA COSTA        !
-        !                                                    !
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !                                              !
+        !     PEDRO LINS DE MOURA MARTINS DA COSTA     !
+        !                                              !
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
         !!!!!!!!!!!
         !VÁRIAVEIS!
         !!!!!!!!!!!
         
-        integer, parametet :: nn = 12
-        real :: p0, pL, L, zeta, f, D, ro, c, Q, S, a, b, n
+        integer, parameter :: n = 19 ! Valor a definir
+        real :: p0, pL, L, zeta, f, D, ro, c, Q, S, a, b
         real :: beta, alfa, dt, dx, 
         integer :: i,j
         real, dimension (n,n) :: A, B
@@ -22,9 +22,9 @@
         b = a*beta*dx/2.0
         zeta = (f/D)*((2.0*ro*c*Q/S)**2.0)
 
-        !!!!!!!!!!!!!!!!!!!!!!
-        !CONDIÇÃO DE CONTORNO!
-        !!!!!!!!!!!!!!!!!!!!!!
+        !!!!!!!!!!!!!!!!!!!!!!!
+        !CONDIÇÕES DE CONTORNO!
+        !!!!!!!!!!!!!!!!!!!!!!!
 
         !pressão constante na saída do compressor
         p(0) = 7.0 
