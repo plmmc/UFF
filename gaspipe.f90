@@ -1,18 +1,24 @@
         program ferramentasmatematicas
         implicit none
         
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        !                                              !
-        !     PEDRO LINS DE MOURA MARTINS DA COSTA     !
-        !                                              !
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !                                            !
+        !    PEDRO LINS DE MOURA MARTINS DA COSTA    !
+        !                                            !
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
+        !!!!!!!!!!!!
+        !PARÂMETROS!
+        !!!!!!!!!!!!
+        
+        integer, parameter :: n = 19 ! Valor a definir
+        real, parameter :: PI = 3.14159265359
+        real, parameter :: g = 9.80665  !m/s²
+        
         !!!!!!!!!!!
         !VÁRIAVEIS!
         !!!!!!!!!!!
         
-        integer, parameter :: n = 19 ! Valor a definir
         real :: p0, pL, L, zeta, f, D, ro, c, Q, S, a, b
         real :: beta, alfa, dt, dx, 
         integer :: i,j
@@ -21,16 +27,22 @@
         a = dt/alfa*(dx)**2.0
         b = a*beta*dx/2.0
         zeta = (f/D)*((2.0*ro*c*Q/S)**2.0)
+        
+        alfa = (16*f*Q)/((D**3)*(c**2)*PI)
+        beta = (2*g*sin(teta))/(c**2)
+        
+        !Construção de malha uniforme
+        !dx = (b - a) / (N - 1)
 
         !!!!!!!!!!!!!!!!!!!!!!!
         !CONDIÇÕES DE CONTORNO!
         !!!!!!!!!!!!!!!!!!!!!!!
 
         !pressão constante na saída do compressor
-        p(0) = 7.0 
+        p(0) = 7.0
         
         !assumimos que o último elemento discreto é regime permanente.
-        p(L) = SQRT((p0)**2.0-(zeta*L)) 
+        p(L) = SQRT((p0)**2.0-(zeta*L))
 
 
         !!!!!!!!!!!!!!!!!!
