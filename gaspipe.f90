@@ -14,6 +14,7 @@
         integer, parameter :: n = 19 ! Valor a definir
         real, parameter :: PI = 3.14159265359
         real, parameter :: g = 9.80665  !m/s²
+        real, parameter :: D = 10  !m A definir
         
         !!!!!!!!!!!
         !VÁRIAVEIS!
@@ -24,13 +25,14 @@
         integer :: i,j
         real, dimension (n,n) :: A, B
 
+        alfa = (16*f*Q)/((D**3)*(c**2)*PI)
+        beta = (2*g*sin(teta))/(c**2)
+
         a = dt/alfa*(dx)**2.0
         b = a*beta*dx/2.0
         zeta = (f/D)*((2.0*ro*c*Q/S)**2.0)
         
-        alfa = (16*f*Q)/((D**3)*(c**2)*PI)
-        beta = (2*g*sin(teta))/(c**2)
-        
+
         !Construção de malha uniforme
         !dx = (b - a) / (N - 1)
 
